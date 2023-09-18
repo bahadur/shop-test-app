@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/checkout/{id}', [\App\Http\Controllers\DashboardController::class, 'checkout'])->name('checkout');
+
+Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('single-charge', [\App\Http\Controllers\DashboardController::class, 'singleCharge'])->name('single-charge');
+
+Route::get('cancel-access/{id}', [\App\Http\Controllers\DashboardController::class, 'cancelAccess'])->name('cancel-access');

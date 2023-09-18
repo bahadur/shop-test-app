@@ -16,19 +16,19 @@
 
                         <ul class="list-group">
                             @foreach($products as $product)
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col">
-                                            <img src="{{asset('images/' . $product->image )}}" style="width: 88px" /><h3>{{ $product->name }}</h3>
-                                            <p class="fw-semibold">{{ $product->price }}</p>
-                                        </div>
-                                        <div class="col">
-                                            <button class="btn btn-primary">Buy</button>
-                                        </div>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="{{asset('images/' . $product->image )}}" style="width: 88px" /><h3>{{ $product->name }}</h3>
+                                        <p class="fw-semibold">{{ $product->price }}</p>
                                     </div>
+                                    <div class="col">
+                                        <a href="{{ route('checkout', ['id' => $product->id]) }}" class="btn btn-primary">Buy</a>
+                                    </div>
+                                </div>
 
 
-                                </li>
+                            </li>
                             @endforeach
                         </ul>
 
